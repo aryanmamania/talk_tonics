@@ -5,9 +5,14 @@ import DashboardLayout from './layouts/dashboardLayout/dashboardLayout'
 import Dashboard from './routes/dashboard/Dashboard'
 import Chatpage from './routes/chatpage/Chatpage'
 import Rootlayout from './layouts/rootlayouts/RootLayout'
+import SignInPage from './routes/signInPage/signInPage'
+import SignUpPage from './routes/signUpPage/signUpPage'
 
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+
+
 
 const router = createBrowserRouter([
 {
@@ -16,6 +21,14 @@ const router = createBrowserRouter([
     {
       path: "/",
       element: <Homepage />,
+    },
+    {
+      path: "/sign-in/*",
+      element: <SignInPage />,
+    },
+    {
+      path: "/sign-up/*",
+      element: <SignUpPage />,
     },
     {
       element: <DashboardLayout />,
