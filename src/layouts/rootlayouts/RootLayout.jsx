@@ -1,4 +1,4 @@
-import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import { ClerkProvider, SignedIn, UserButton } from '@clerk/clerk-react';
 import './rootlayout.css'
 import { Link, Outlet } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ const Rootlayout = () => {
         <img src="/logo.png" alt="" />
         <span>MAMANIA AI</span>
         </Link>
-        <div className="user">
+        <div className="user">  
 <SignedIn>
   <UserButton />
 </SignedIn>
