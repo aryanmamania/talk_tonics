@@ -10,6 +10,7 @@ const ChatList = () => {
     <Link to="/"> Explore Mamania AI </Link>
     <Link to="/"> Contact </Link>
     <hr/>
+    <span className='title'>Recent Chats </span>
     <div className="list">
         <Link to="/">My Chat title </Link>
         <Link to="/">My Chat title </Link>
