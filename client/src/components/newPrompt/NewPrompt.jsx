@@ -29,7 +29,15 @@ const NewPrompt = () => {
     setQuestion(text)
 
 
-    const result = await chat.sendMessage(Object.entries(img.aiData).length ? [img.aiData, text] : [text]);
+    const result = await chat.sendMessageStream(Object.entries(img.aiData).length ? [img.aiData, text] : [text]);
+
+    let accumulatedText = "";
+    for await (const chunk of result.stream){
+      const chunkText = chunk.text();
+      console.log(chunkText);
+      accumulatedText += chunkText;
+    }
+      
     const response = await result.response;
     setAnswer(response.text())
     setImg({
