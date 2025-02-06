@@ -48,6 +48,7 @@ const Chatpage = () => {
   )
 }
 
-1 hour 26 min 25 sec 
+
+
 
 export default Chatpage
