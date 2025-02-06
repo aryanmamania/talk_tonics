@@ -2,9 +2,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import "./newPromp.css"
 import Upload from '../uploads/Upload';
 import { IKImage } from 'imagekitio-react';
+import model from "../../lib/gemini"
 
 const NewPrompt = () => {
 
+
+  const [question, setQuestion] = useState("")
 
   const{ img, setImg} = useState({
     isLoading:false,
@@ -18,6 +21,16 @@ const NewPrompt = () => {
       endRef.current.scrollIntoView({ behaviour:"smooth" });
     }, []);
 
+  const add = async ()=>{
+    const prompt = "Write a story on your own";
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = await response.text();
+    console.log(text);
+  };
+
+  const handleSubmit = async (e)
 
   return (
     <>
@@ -31,7 +44,7 @@ const NewPrompt = () => {
       />
     )}
     <div className="endChat" ref={endRef}></div>
-        <form className='newForm'>
+        <form className='newForm' onSubmit={handleSubmit}>
             <Upload setImg={setImg}/>
             <input id="file" type="file" multiple={false} hidden />
             <input type="text" placeholder='Ask Anything'/>
